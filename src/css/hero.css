@@ -1,14 +1,25 @@
-.hero-cntr {
-  background-image: url(../images/Hero-bgnd-mobile.png);
-  width: 100%;
-  max-width: 375px;
+.hero-section {
   height: 812px;
+  background-image: url(../images/Hero-bgnd-mobile.png);
+  block-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.hero-container {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  position: relative;
-  min-height: 100vh;
+
+  max-width: 375px;
+  padding-left: 16px;
+  padding-right: 16px;
+  margin: 0 auto;
+  min-height: 100%;
+  align-content: space-between;
+  padding-bottom: 32px;
+
 }
 
 .hero-title {
@@ -79,15 +90,27 @@
 }
 
 /* ---------Adaptation--------- */
+/* --------Responsive----------- */
+@media (max-width: 374px) {
+  .hero-soc-networks {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    max-width: 100%;
+    height: 80px;
+  }
+}
 /* --------Laptop-------- */
 @media (min-width: 768px) {
-  .hero-cntr {
+  .hero-section {
     background-image: url(../images/Hero-bgnd-tablet.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    max-width: 768px;
     height: 1024px;
-    min-height: fit-content;
+  }
+
+  .hero-container {
+    padding-left: 32px;
+    padding-right: 32px;
+    max-width: 768px;
   }
 
   .hero-title {
@@ -115,16 +138,40 @@
     height: 55px;
   }
 }
+
 /* --------Desktop------- */
 @media (min-width: 1440px) {
-  .hero-cntr {
+  .hero-section {
     background-image: url(../images/Hero-bgnd.png);
-    background-repeat: no-repeat;
-    max-width: 1440px;
     height: 900px;
+  }
+  
+  
+  .hero-container {
+    max-width: 1440px;
+    padding-left: 32px;
+    padding-right: 32px;
   }
 
   .hero-soc-networks {
     right: 32px;
+  }
+}
+
+/* --------Retina------- */
+@media (min-resolution: 192dpi) {
+  .hero-section {
+    background-image: url(../images/Hero-bgnd-mobile-2x.png);
+  }
+
+  @media (min-width: 768px) {
+    .hero-section {
+      background-image: url(../images/Hero-bgnd-tablet-2x.png);
+    }
+    @media (min-width: 1440px) {
+      .hero-section {
+        background-image: url(../images/Hero-bgnd-2x.png);
+      }
+    }
   }
 }

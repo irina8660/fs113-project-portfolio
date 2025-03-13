@@ -57,9 +57,50 @@ const swiper = new Swiper('.about-me__skills', {
 });
 
 function highlightActiveSkill(swiper) {
-  const skills = document.querySelectorAll('.about-me__skill-item');
+  const skills = swiper.slides;
   skills.forEach(skill => skill.classList.remove('active'));
 
-  const activeIndex = swiper.realIndex; // отримуємо реальний індекс активного слайда
-  skills[activeIndex]?.classList.add('active'); // додаємо клас для виділення активного кружечка
+  const activeSlide = swiper.slides[swiper.activeIndex];
+  if (activeSlide) {
+    activeSlide.classList.add('active');
+  }
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+  highlightActiveSkill(swiper);
+});
+
+// const swiper = new Swiper('.about-me__skills', {
+//   modules: [Navigation],
+//   loop: true,
+//   slidesPerView: 2,
+//   spaceBetween: 0,
+//   speed: 1000,
+//   navigation: {
+//     nextEl: '.about-me__skills-button-next',
+//   },
+//   breakpoints: {
+//     320: { slidesPerView: 2 },
+//     768: { slidesPerView: 3 },
+//     1440: { slidesPerView: 6 },
+//   },
+//   on: {
+//     slideChange: function () {
+//       highlightActiveSkill(this);
+//     },
+//   },
+
+//   touchEventsTarget: 'wrapper',
+//   touchRatio: 1,
+//   touchAngle: 45,
+//   simulateTouch: true,
+//   grabCursor: true,
+// });
+
+// function highlightActiveSkill(swiper) {
+//   const skills = document.querySelectorAll('.about-me__skill-item');
+//   skills.forEach(skill => skill.classList.remove('active'));
+
+//   const activeIndex = swiper.realIndex;
+//   skills[activeIndex]?.classList.add('active');
+// }
