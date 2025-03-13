@@ -68,6 +68,10 @@ footer {
   padding: 32px 0;
 }
 
+section:first-child {
+  padding-top: 0;
+}
+
 @media screen and (min-width: 768px) {
   section:not(:first-child) {
     padding: 48px 0;
