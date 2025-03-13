@@ -29,43 +29,28 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-const swiper = new Swiper('.swiper.swiper about-me__skills', {
-  modules: [Navigation],
+const refs = {
+  nextSkillsButton: document.querySelector('.about-me__skills-button-next'),
+};
+
+const swiper = new Swiper('.swiper.about-me__skills', {
+  modules: [Navigation, Keyboard],
   loop: true,
   slidesPerView: 2,
-  spaceBetween: 0,
-  speed: 1000,
+  speed: 300,
   navigation: {
     nextEl: '.about-me__skills-button-next',
   },
   breakpoints: {
-    320: { slidesPerView: 2 },
     768: { slidesPerView: 3 },
     1440: { slidesPerView: 6 },
   },
-  on: {
-    slideChange: function () {
-      highlightActiveSkill(this);
-    },
+  keyboard: {
+    enabled: true,
+    onlyInViewport: true,
   },
-
-  touchEventsTarget: 'wrapper',
-  touchRatio: 1,
-  touchAngle: 45,
-  simulateTouch: true,
-  grabCursor: true,
 });
 
-function highlightActiveSkill(swiper) {
-  const skills = swiper.slides;
-  skills.forEach(skill => skill.classList.remove('active'));
-
-  const activeSlide = swiper.slides[swiper.activeIndex];
-  if (activeSlide) {
-    activeSlide.classList.add('active');
-  }
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-  highlightActiveSkill(swiper);
+refs.nextSkillsButton.addEventListener('mousedown', () => {
+  setTimeout(() => refs.nextSkillsButton.blur(), 0);
 });
