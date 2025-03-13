@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', async function () {
       )
       .join('');
     reviewsBlock.innerHTML = reviewsHTML;
-    const swiper = new Swiper('.swiper', {
+    const swiper = new Swiper('.reviews-swpr', {
       modules: [Navigation, Keyboard],
       simulateTouch: true,
       touchRatio: 1,
@@ -34,6 +34,7 @@ document.addEventListener('DOMContentLoaded', async function () {
       grabCursor: true,
       slidesPerView: 1,
       spaceBetween: 16,
+      speed: 1000,
       navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',

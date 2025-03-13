@@ -85,6 +85,10 @@
   transition: var(--transition);
 }
 
+/* .about-me__icon:first-child {
+  transform: rotate(180deg);
+} */
+
 .about-me__icon {
   flex-shrink: 0;
   width: 20px;
